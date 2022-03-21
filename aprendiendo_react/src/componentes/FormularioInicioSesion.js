@@ -1,22 +1,39 @@
 import React, {useState} from 'react';
 
 
-const FormularioInicioSesion = () => {
+const FormularioInicioSesion = (props) => {
     const [usuario, cambiarUsuario] = useState('');
     const [password, cambiarPassword] = useState('');
 
-    const onChangeUsuario = (evento) => {
-        cambiarUsuario(evento.target.value);
+    //const onChangeUsuario = (evento) => {        }
+      //  cambiarUsuario(evento.target.value);
+    //}
+
+    //const onChangePassword = (evento) => {
+      //  cambiarPassword(evento.target.value);
+    //}
+
+    const onChange = (evento) => {
+        if(evento.target.name === 'usuario'){
+            cambiarUsuario(evento.target.value);
+        } else if (evento.target.name === 'password'){
+            cambiarPassword(evento.target.value);
+        }
     }
 
-    const onChangePassword = (evento) => {
-        cambiarPassword(evento.target.value);
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        if(usuario === 'Kronos' && password === '123'){
+            props.cambiarEstadoSesion(true);
+        } else {
+            cambiarUsuario('');
+            cambiarPassword('');
+        }
     }
 
     return (
-        <form action=''>
-            <p>Usuario: {usuario}</p>
-            <p>Contraseña: {password}</p>
+        <form action='' onSubmit={onSubmit}>
             <div>
                 <label htmlFor='usuario'>Usuario</label>
                 <input
@@ -24,7 +41,7 @@ const FormularioInicioSesion = () => {
                     name='usuario'
                     id='usuario'
                     value={usuario}
-                    onChange={onChangeUsuario}
+                    onChange={onChange}
                 />
             </div>
             <div>
@@ -34,7 +51,7 @@ const FormularioInicioSesion = () => {
                     name='password'
                     id='password'
                     value={password}
-                    onChange={onChangePassword}
+                    onChange={onChange}
                 />
             </div>
             <button type='submit'>Iniciar Sesion</button>

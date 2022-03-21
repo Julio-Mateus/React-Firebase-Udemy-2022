@@ -12,8 +12,8 @@ const App = () => {
       {sesion === true ?
       <div>
         <Usuario/>
-        <ContadorFuncional cantidadAIncrementar={100} cantidadADisminuir={20}/>
-        {/*<ContadorClass cantidadAIncrementar={10} cantidadADisminuir={2} />*/}
+        {/*<ContadorFuncional cantidadAIncrementar={100} cantidadADisminuir={20}/>*/}
+        <ContadorClass cantidadAIncrementar={10} cantidadADisminuir={2} />
         <button onClick={() => cambiarEstadoSesion(false)}>Cerrar Sesion</button>
       </div>
       :

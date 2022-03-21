@@ -6,6 +6,19 @@ class Contador extends Component {
 
         this.state = { contador: 0}
     }
+    componentDidMount(){
+        console.log('El componente se cargo en el DOM');
+        // ... Llamamos a la API ...
+    }
+    componentDidUpdate(propiedadesAnteriores, estadoAnterior){
+        console.log('El componente se actualizo!');
+        console.log('Propiedades anteriores del componente', propiedadesAnteriores)
+        console.log('Estado anterior del componente', estadoAnterior)
+    }
+    componentWillUnmount(){
+        console.log('Adios componente!')
+        // ... Acabamos llamada a la API ...
+    }
     incrementar(cantidad){
         this.setState((estadoAnterior) => {
             return {

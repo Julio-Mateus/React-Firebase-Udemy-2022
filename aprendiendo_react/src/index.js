@@ -5,6 +5,9 @@ import FormularioInicioSesion from './componentes/FormularioInicioSesion';
 import ContadorClass from './componentes/ContadorClass';
 import ContadorFuncional from './componentes/ContadorFuncional';
 import './index.css';
+import Boton from './elementos/Boton';
+import EjemploUserReducer from './componentes/EjemploUseReducer';
+
 const App = () => {
   const [sesion, cambiarEstadoSesion] = useState(false);
   return (
@@ -12,9 +15,11 @@ const App = () => {
       {sesion === true ?
       <div>
         <Usuario/>
-        <ContadorFuncional cantidadAIncrementar={100} cantidadADisminuir={20}/>
+        <EjemploUserReducer />
+        {/*<ContadorFuncional cantidadAIncrementar={100} cantidadADisminuir={20}/>*/}
         {/*<ContadorClass cantidadAIncrementar={10} cantidadADisminuir={2} />*/}
-        <button onClick={() => cambiarEstadoSesion(false)}>Cerrar Sesion</button>
+        {/*<button onClick={() => cambiarEstadoSesion(false)}>Cerrar Sesion</button> */}
+        <Boton largo marginTop onClick={() => cambiarEstadoSesion(false)}>Cerrar Sesion</Boton>
       </div>
       :
       <div>

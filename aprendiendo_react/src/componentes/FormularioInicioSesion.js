@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from './FormularioInicioSesion.module.css';
+import Boton from '../elementos/Boton';
 
 
 const FormularioInicioSesion = (props) => {
@@ -58,7 +59,10 @@ const FormularioInicioSesion = (props) => {
                     className={styles.input}
                 />
             </div>
-            <button type='submit' className={styles.boton}>Iniciar Sesion</button>
+            {/*<button type='submit' className={styles.boton}>Iniciar Sesion</button>*/}
+            <div>
+                <Boton largo type='submit'>Iniciar Sesion</Boton>
+            </div>
         </form>
     );
 }
